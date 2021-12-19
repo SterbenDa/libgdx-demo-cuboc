@@ -11,6 +11,6 @@ public class CubocDesktop {
 
 		// After creating the Application instance we can set the log level to
 		// show the output of calls to Gdx.app.debug
-		Gdx.app.setLogLevel(Application.LOG_DEBUG);
+		Gdx.app.setLogLevel(Application.LOG_ERROR);
 	}
 }

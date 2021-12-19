@@ -6,6 +6,9 @@ import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
+/**
+ * 立方体
+ */
 public class Cube {
 	static final int FOLLOW = 0;
 	static final int FIXED = 1;
@@ -20,8 +23,10 @@ public class Cube {
 	Vector2 accel = new Vector2();
 	Vector2 vel = new Vector2();
 	Rectangle bounds = new Rectangle();
+
 	int state = FOLLOW;
 	float stateTime = 0;
+
 	Rectangle controllButtonRect = new Rectangle(480 - 64, 320 - 64, 64, 64);
 	Rectangle followButtonRect = new Rectangle(480 - 64, 320 - 138, 64, 64);
 	Rectangle dpadRect = new Rectangle(0, 0, 128, 128);

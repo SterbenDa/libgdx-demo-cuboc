@@ -19,16 +19,18 @@ buildscript {
         gwtVersion = json.gwtVersion
         gwtGradleVersion = json.gwtPluginVersion
     }
-    
+
     repositories {
         mavenLocal()
         mavenCentral()
+        // 阿里云仓库快一点
+        maven { url "https://maven.aliyun.com/nexus/content/groups/public/" }
         maven { url "https://plugins.gradle.org/m2/" }
         maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
         jcenter()
         google()
     }
-    
+
     dependencies {
         classpath "org.wisepersist:gwt-gradle-plugin:$gwtGradleVersion"
         classpath "com.android.tools.build:gradle:$androidGradleToolsVersion"
@@ -39,15 +41,17 @@ buildscript {
 allprojects {
     apply plugin: "eclipse"
     apply plugin: "idea"
-    
+
     version = "1.0"
     ext {
         appName = "libgdx-demo-cuboc"
     }
-    
+
     repositories {
         mavenLocal()
         mavenCentral()
+        // 阿里云仓库快一点
+        maven { url "https://maven.aliyun.com/nexus/content/groups/public/" }
         google()
         jcenter()
         maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
@@ -56,7 +60,7 @@ allprojects {
 
 project(":core") {
     apply plugin: "java"
-    
+
     dependencies {
         compile "com.badlogicgames.gdx:gdx:$gdxVersion"
     }
@@ -64,7 +68,7 @@ project(":core") {
 
 project(":desktop") {
     apply plugin: "java"
-    
+
     dependencies {
         compile project(":core")
         compile "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
@@ -96,7 +100,7 @@ project(":html") {
         compile "com.badlogicgames.gdx:gdx-backend-gwt:$gdxVersion"
         compile "com.badlogicgames.gdx:gdx:$gdxVersion:sources"
         compile "com.badlogicgames.gdx:gdx-backend-gwt:$gdxVersion:sources"
-    }    
+    }
 }
 
 project(":ios") {
@@ -114,5 +118,5 @@ project(":ios") {
 
 
 tasks.eclipse.doLast {
-	delete ".project"
+    delete ".project"
 }
